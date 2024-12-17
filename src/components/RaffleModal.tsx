@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGift, FaTrophy, FaInstagram, FaWhatsapp, FaShare, FaUserTag, FaTicketAlt, FaCheck, FaClipboard } from 'react-icons/fa';
+import { FaGift, FaTrophy, FaInstagram, FaShare, FaUserTag, FaTicketAlt, FaClipboard } from 'react-icons/fa';
 
 interface RaffleModalProps {
   isOpen: boolean;

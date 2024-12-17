@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaUsers,
   FaRocket,
-  FaCode,
-  FaPalette,
   FaTimes,
   FaDesktop,
   FaTablet,
