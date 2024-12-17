@@ -11,7 +11,8 @@ import {
   FaEnvelope,
   FaTimes
 } from 'react-icons/fa';
-import logo from '../assets/logo.png';
+
+const logo = new URL('../assets/logo.png', import.meta.url).href;
 
 interface DigitalCardModalProps {
   isOpen: boolean;
