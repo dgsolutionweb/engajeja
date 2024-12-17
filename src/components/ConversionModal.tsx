@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaChartLine, FaUsers, FaShoppingCart, FaDollarSign, 
-  FaArrowUp, FaArrowDown, FaEye, FaUserPlus, FaPercent,
-  FaFilter, FaCalendar, FaChartBar
+  FaShoppingCart, 
+  FaDollarSign,
+  FaTimes,
+  FaFilter,
+  FaChartBar,
+  FaEye,
+  FaUserPlus,
+  FaArrowUp,
+  FaArrowDown,
+  FaPercent,
+  FaCalendar
 } from 'react-icons/fa';
 
 interface ConversionModalProps {
@@ -21,7 +29,6 @@ interface MetricCard {
 
 const ConversionModal: React.FC<ConversionModalProps> = ({ isOpen, onClose }) => {
   const [selectedPeriod, setSelectedPeriod] = useState('hoje');
-  const [activeFilter, setActiveFilter] = useState('todos');
   const [metrics, setMetrics] = useState({
     visitors: 1234,
     leads: 456,
@@ -202,16 +209,12 @@ const ConversionModal: React.FC<ConversionModalProps> = ({ isOpen, onClose }) =>
             </div>
 
             {/* Close Button */}
-            <div className="mt-8 text-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={onClose}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold"
-              >
-                Fechar Dashboard
-              </motion.button>
-            </div>
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white"
+            >
+              <FaTimes />
+            </button>
           </motion.div>
         </motion.div>
       )}

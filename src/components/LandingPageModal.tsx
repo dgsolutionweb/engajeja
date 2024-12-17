@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaDesktop, 
-  FaMobile, 
-  FaTablet,
-  FaRocket,
-  FaChartLine,
-  FaSearch,
-  FaTimes,
-  FaArrowRight,
-  FaCheck,
-  FaFire,
-  FaClock,
   FaUsers,
+  FaRocket,
+  FaCode,
+  FaPalette,
+  FaTimes,
+  FaDesktop,
+  FaTablet,
+  FaMobile,
+  FaFire,
+  FaCheck,
   FaStar,
-  FaShieldAlt,
-  FaGem
+  FaShieldAlt
 } from 'react-icons/fa';
 
 interface LandingPageModalProps {
