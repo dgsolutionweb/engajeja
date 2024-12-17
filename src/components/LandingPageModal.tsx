@@ -81,18 +81,18 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 overflow-y-auto"
+          className="fixed inset-0 bg-black/90 flex items-start justify-center z-50 overflow-y-auto py-8"
           onClick={onClose}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-gray-900 rounded-2xl max-w-4xl w-full p-6 relative"
+            className="bg-gray-900 rounded-2xl max-w-4xl w-full mx-4 p-6 relative"
             onClick={e => e.stopPropagation()}
           >
             {/* Device Preview Controls */}
-            <div className="flex justify-center gap-4 mb-4">
+            <div className="flex justify-center gap-4 mb-4 sticky top-0 bg-gray-900 py-2 z-10">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -120,10 +120,10 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
             </div>
 
             {/* Landing Page Preview */}
-            <div className={`bg-white rounded-xl overflow-hidden ${
-              previewDevice === 'mobile' ? 'max-w-xs mx-auto' : 
-              previewDevice === 'tablet' ? 'max-w-md mx-auto' : 'w-full'
-            }`}>
+            <div className={`bg-white rounded-xl overflow-hidden transition-all duration-300 ${
+              previewDevice === 'mobile' ? 'max-w-xs' : 
+              previewDevice === 'tablet' ? 'max-w-md' : 'w-full'
+            } mx-auto`}>
               {/* Hero Section */}
               <div className="bg-gradient-to-br from-blue-600 to-purple-700 text-white p-8 text-center">
                 <motion.div
@@ -131,11 +131,11 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h1 className="text-4xl font-bold mb-4">
+                  <h1 className={`${previewDevice === 'mobile' ? 'text-2xl' : 'text-4xl'} font-bold mb-4`}>
                     Transforme seu Negócio com
                     <span className="block text-yellow-300">Landing Pages que Vendem</span>
                   </h1>
-                  <p className="text-lg mb-8 text-blue-100">
+                  <p className={`${previewDevice === 'mobile' ? 'text-base' : 'text-lg'} mb-8 text-blue-100`}>
                     Aumente suas vendas com páginas otimizadas para conversão
                   </p>
                   <div className="inline-block bg-red-500 text-white px-4 py-2 rounded-lg mb-6">
@@ -161,7 +161,7 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold text-lg shadow-lg"
+                    className={`bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold ${previewDevice === 'mobile' ? 'text-sm' : 'text-lg'} shadow-lg`}
                   >
                     QUERO AUMENTAR MINHAS VENDAS AGORA!
                   </motion.button>
@@ -170,7 +170,7 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
 
               {/* Benefits Section */}
               <div className="p-8 bg-gray-50">
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className={`grid ${previewDevice === 'mobile' ? 'grid-cols-1' : 'md:grid-cols-3'} gap-6`}>
                   {benefits.map((benefit, index) => (
                     <motion.div
                       key={benefit.title}
@@ -189,10 +189,10 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
 
               {/* Features Section */}
               <div className="p-8 bg-white">
-                <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+                <h2 className={`${previewDevice === 'mobile' ? 'text-2xl' : 'text-3xl'} font-bold text-center mb-8 text-gray-800`}>
                   Tudo que Você Precisa para <span className="text-blue-600">Vender Mais</span>
                 </h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className={`grid ${previewDevice === 'mobile' ? 'grid-cols-1' : 'md:grid-cols-2'} gap-4`}>
                   {features.map((feature, index) => (
                     <motion.div
                       key={feature}
@@ -210,10 +210,10 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
 
               {/* Testimonials */}
               <div className="p-8 bg-gray-900 text-white">
-                <h2 className="text-3xl font-bold text-center mb-8">
+                <h2 className={`${previewDevice === 'mobile' ? 'text-2xl' : 'text-3xl'} font-bold text-center mb-8`}>
                   O que Nossos Clientes Dizem
                 </h2>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className={`grid ${previewDevice === 'mobile' ? 'grid-cols-1' : 'md:grid-cols-3'} gap-6`}>
                   {testimonials.map((testimonial, index) => (
                     <motion.div
                       key={testimonial.name}
@@ -239,7 +239,7 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
 
               {/* CTA Section */}
               <div className="p-8 bg-gradient-to-br from-blue-600 to-purple-700 text-white text-center">
-                <h2 className="text-3xl font-bold mb-4">
+                <h2 className={`${previewDevice === 'mobile' ? 'text-2xl' : 'text-3xl'} font-bold mb-4`}>
                   Comece a Vender Mais Hoje Mesmo!
                 </h2>
                 <p className="mb-8 text-blue-100">
@@ -248,7 +248,7 @@ const LandingPageModal: React.FC<LandingPageModalProps> = ({ isOpen, onClose }) 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold text-lg shadow-lg"
+                  className={`bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold ${previewDevice === 'mobile' ? 'text-sm' : 'text-lg'} shadow-lg`}
                 >
                   GARANTIR MINHA VAGA COM DESCONTO!
                 </motion.button>
